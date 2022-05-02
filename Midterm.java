@@ -319,22 +319,23 @@ public class Midterm {
 				PrelimGrade.remove(DeleteRec);
 				MidtermGrade.remove(DeleteRec);
 				FinalGrade.remove(DeleteRec);
+							
+				EntryNum--;
+				FileWriter fw = new FileWriter("Records.txt");
+				for (int row = 0; row < EntryNum; row++) {	
+					fw.write(FirstName.get(row) + "<==>" + MiddleInitial.get(row) + "<==>" + LastName.get(row) + "<==>" + PrelimGrade.get(row) + "<==>" + MidtermGrade.get(row) 
+							+ "<==>" + FinalGrade.get(row));
+					fw.write("\r\n");
+				}
+					fw.close();
+
+				System.out.println("Record No." + input + " is successfully deleted.");	
+				System.out.println("-----------------------------------------------");
+
+				ReadFile();
+
 			}
-			
-			EntryNum--;
-			FileWriter fw = new FileWriter("Records.txt");
-			for (int row = 0; row < EntryNum; row++) {	
-				fw.write(FirstName.get(row) + "<==>" + MiddleInitial.get(row) + "<==>" + LastName.get(row) + "<==>" + PrelimGrade.get(row) + "<==>" + MidtermGrade.get(row) 
-						+ "<==>" + FinalGrade.get(row));
-				fw.write("\r\n");
-			}
-				fw.close();
-				
-			System.out.println("Record No." + input + " is successfully deleted.");	
-			System.out.println("-----------------------------------------------");
-			
-			ReadFile();
-				
+
 		}
 
 	}
